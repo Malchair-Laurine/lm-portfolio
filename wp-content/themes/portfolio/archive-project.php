@@ -49,7 +49,7 @@ $query = new WP_Query($args);
     <h2><?= get_the_title() ?></h2>
     <p><?= get_the_excerpt() ?></p>
     <a href="<?= get_the_permalink() ?>" title="Lien vers mon projet" : <?= get_the_title() ?> target="_blank">
-        Découvrir mon projet
+        <?= __hepl('Découvrir mon projet'); ?>
     </a>
 </section>
 <?php endwhile; else: ?>

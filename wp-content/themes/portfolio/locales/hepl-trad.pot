@@ -1,0 +1,46 @@
+# Copyright (C) 2026 Laurine Malchair
+# This file is distributed under the same license as the Theme Portfolio theme.
+msgid ""
+msgstr ""
+"Project-Id-Version: Theme Portfolio 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/portfolio\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-04-20T08:21:11+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: portfolio\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "Theme Portfolio"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "Description pour le thème portfolio"
+msgstr ""
+
+#. Author of the theme
+#: style.css
+msgid "Laurine Malchair"
+msgstr ""
+
+#. Template Name of the theme
+msgid "HomePage"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Login template"
+msgstr ""
+
+#. Template Name of the theme
+msgid "//Register template"
+msgstr ""
+
+#. Template Name of the theme
+msgid "//School template"
+msgstr ""

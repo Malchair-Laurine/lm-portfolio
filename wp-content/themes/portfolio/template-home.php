@@ -34,6 +34,7 @@ $filter_query = $_GET['filter'] ?? 'Tous';
 
 //course
 $course_title = get_field('course_title');
+$flying_cartoon = get_field('flying_cartoon');
 $steps = get_field('steps');
 
 //contact
@@ -41,13 +42,21 @@ $contact_title = get_field('contact_title');
 $contact_image = get_field('contact_image');
 ?>
 
+<!---->
+<!--Type machine-->
+<!---->
+
 <div class="typemachine">
     <?php if ($typemachine_text !== ""): ?>
         <p class="typemachine__text"><?= $typemachine_text ?></p>
     <?php endif; ?>
 </div>
 
-<div class="header">
+<!---->
+<!--header-->
+<!---->
+
+<div class="header" id="accueil">
     <?php if ($main_title !== ""): ?>
         <h1 class="header__title"><?= $main_title ?></h1>
     <?php endif; ?>
@@ -57,7 +66,11 @@ $contact_image = get_field('contact_image');
     <?php endif; ?>
 </div>
 
-<div class="about-me">
+<!---->
+<!--A propose de moi-->
+<!---->
+
+<div class="about-me" id="a-propos-de-moi">
     <?php if ($description_title !== ""): ?>
         <h2 class="about-me__h2"><?= $description_title ?></h2>
     <?php endif; ?>
@@ -87,7 +100,11 @@ $contact_image = get_field('contact_image');
 
 </div>
 
-<div class="skills">
+<!---->
+<!--Mes compétences-->
+<!---->
+
+<div class="skills" id="mes-compétences">
     <?php if ($skills_title !== ""): ?>
         <p class="skills__title"><?= $skills_title ?></p>
     <?php endif; ?>
@@ -103,6 +120,9 @@ $contact_image = get_field('contact_image');
 
 </div>
 
+<!---->
+<!--Mes projets-->
+<!---->
 
 <div class="projects" id="mes-projets">
 
@@ -165,20 +185,20 @@ $contact_image = get_field('contact_image');
         $project_image = get_field('project_image');
         ?>
         <?php if ($project_title !== "" && $project_image !== "" && $project_book !== ""): ?>
-            <section class="project">
-                <div class="project__content">
+            <section class="projects">
+                <div class="projects__content">
                     <h2><?= $project_title ?></h2>
                     <img src="<?= $project_book['url'] ?>"
                          alt="<?= $project_book['alt'] ?>"
                          width="400"
                          height="400"
-                         class="project__image-svg"
+                         class="projects__image-svg"
                     >
                     <img src="<?= $project_image['url'] ?>"
                          alt="<?= $project_image['alt'] ?>"
                          width="400"
                          height="400"
-                         class="project__image"
+                         class="projects__image"
                     >
                 </div>
                 <a class="project__link" href="<?= get_the_permalink() ?>" title="Lien vers mon projet"
@@ -194,10 +214,22 @@ $contact_image = get_field('contact_image');
 
 </div>
 
+<!---->
+<!--Mon parcours-->
+<!---->
 
-<div class="course">
+<div class="course" id="mon-parcours">
     <?php if ($course_title !== ""): ?>
         <h2 class="course__title"><?= $course_title ?></h2>
+    <?php endif; ?>
+
+    <?php if ($flying_cartoon !== ''): ?>
+        <img src="<?= $flying_cartoon['url'] ?>"
+             alt="<?= $flying_cartoon['alt'] ?>"
+             width="400"
+             height="400"
+             class="course__image"
+        >
     <?php endif; ?>
 
     <?php foreach ($steps as $step_item): ?>
@@ -214,7 +246,11 @@ $contact_image = get_field('contact_image');
     <?php endforeach; ?>
 </div>
 
-<div class="contact">
+<!---->
+<!--Contact-->
+<!---->
+
+<div class="contact" id="contact">
 
     <?php if ($contact_title !== ""): ?>
         <h2 class="contact__title"><?= $contact_title ?></h2>
@@ -228,9 +264,6 @@ $contact_image = get_field('contact_image');
              class="contact__image"
         >
     <?php endif; ?>
-
-
-
 </div>
 
 
