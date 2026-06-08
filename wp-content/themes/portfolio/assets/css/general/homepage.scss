@@ -648,18 +648,15 @@ PARCOURS
   }
 }
 
-/* =============================================
-   BASE MOBILE-FIRST — overflow global
-   ============================================= */
 
 html, body {
   overflow-x: hidden;
   max-width: 100%;
 }
 
-/* =============================================
-   TABLETTE — max 1024px
-   ============================================= */
+/*
+RESPONSIVE
+*/
 
 @media (max-width: 1024px) {
 
@@ -714,10 +711,6 @@ html, body {
   }
 }
 
-
-/* =============================================
-   MOBILE — max 768px
-   ============================================= */
 
 @media (max-width: 768px) {
 
@@ -907,10 +900,9 @@ html, body {
       margin-bottom: 3rem;
     }
 
-    /* Supprime l'avatar flottant qui se superpose */
     &__avatar-container {
-      display: block; // réaffiche le container
-      position: relative; // sort du position absolute
+      display: block;
+      position: relative;
       top: auto;
       left: auto;
       transform: none;
@@ -921,7 +913,7 @@ html, body {
       pointer-events: none;
     }
     &__main-image {
-      position: relative; // sort du position absolute
+      position: relative;
       top: auto;
       left: auto;
       margin: 0 auto;
