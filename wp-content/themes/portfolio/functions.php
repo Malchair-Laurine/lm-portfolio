@@ -102,4 +102,3 @@ function __hepl($translation): ?string
     return __($translation, 'hepl-trad');
 }
 
-

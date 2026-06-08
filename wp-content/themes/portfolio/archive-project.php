@@ -26,19 +26,16 @@ $query = new WP_Query($args);
 <div>
     <ul>
         <li>
-            <a href="/projets">
-                Tous
-            </a>
             <?php foreach ($terms as $term) : ?>
             <a href="/projets?filter=<?= $term->slug ?>">
                 <?= $term->name; ?>
             </a>
             <?php endforeach; ?>
             <a href="/projets?filter=web">
-                Web
+                <?= $term->name; ?>
             </a>
             <a href="/projets?filter=mobile">
-                Mobile
+                <?= $term->name; ?>
             </a>
         </li>
     </ul>

@@ -2,7 +2,7 @@
 @use 'general/general';
 @use 'general/footer';
 @use 'general/navigation';
-@use 'components/form';
-@use 'components/cta';
-@use 'components/project';
-@use 'components/homepage';
+@use 'general/form';
+@use 'general/project';
+@use 'general/homepage';
+@use  'general/font-family';

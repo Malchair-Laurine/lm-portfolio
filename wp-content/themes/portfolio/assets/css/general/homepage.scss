@@ -1,0 +1,1028 @@
+/* Colors */
+$color-title: #6B4F3A;
+$color-citation: #A68A6D;
+$color-subtitle: #A07454;
+$color-text: #594336;
+
+/* Sizes */
+$size-title: 8rem;
+$size-citation: 2.5rem;
+$size-subtitle: 4rem;
+$size-text: 1.5rem;
+
+/* background */
+$main-bg: #F5F1EA;
+$typemachine-bg: #F5ECD5;
+
+/* Fonts */
+$font-title: 'Lora', 'Georgia', 'Times New Roman', Times, serif;
+$font-body: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
+
+body {
+  background-color: $main-bg;
+  color: $color-text;
+  font-family: $font-body;
+}
+
+.typemachine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $typemachine-bg;
+  min-height: 200px;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: -115px;
+
+  &__text {
+    font-family: $font-title;
+    color: $color-citation;
+    font-size: 64px;
+    padding: 2rem;
+    margin: 0;
+    border-right: 3px solid $color-citation;
+    animation: blink-caret 0.75s step-end infinite;
+    white-space: pre-wrap;
+  }
+}
+
+/*
+HEADER
+*/
+
+.header {
+  text-align: center;
+  padding: 4rem 1rem;
+  font-family: $font-title;
+  margin-top: 30px;
+
+  &__title {
+    font-size: $size-title;
+    color: $color-title;
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+  }
+
+  &__subtitle {
+    font-size: $size-citation;
+    color: $color-citation;
+  }
+}
+
+/*
+A PROPOS DE MOI
+*/
+
+.about-me {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(350px, 650px);
+  align-items: center;
+  gap: 4rem;
+  min-height: auto;
+  overflow: hidden;
+  padding: 3rem;
+
+
+  &__content {
+    max-width: 750px;
+    width: 100%;
+  }
+
+  &__title {
+    font-size: $size-subtitle;
+    color: $color-subtitle;
+    font-family: $font-title;
+    margin-bottom: 3rem;
+    line-height: 1;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: $size-text;
+    color: $color-text;
+    line-height: 1.5;
+  }
+
+  &__images {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: 400px;
+  }
+
+  &__bench {
+    position: absolute;
+    bottom: 10rem;
+    left: 60%;
+    transform: translateX(-50%);
+    width: 110%;
+    height: 2rem;
+    background-color: #B08968;
+    z-index: 1;
+  }
+
+  &__image {
+    position: relative;
+    display: block;
+    height: auto;
+
+    &--sitting {
+      position: relative;
+      width: 320px;
+      z-index: 3;
+      transform: translateY(0rem);
+    }
+
+    &--cat {
+      position: absolute;
+      width: 180px;
+      left: 4rem;
+      bottom: 7rem;
+      z-index: 4;
+    }
+  }
+}
+
+/*
+COMPETENCES
+*/
+
+.skills {
+  width: 100%;
+  margin-top: 112px;
+  padding: 0 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  &__title {
+    font-family: $font-title;
+    color: $color-subtitle;
+    font-size: $size-subtitle;
+    margin-bottom: 4rem;
+    width: 100%;
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: 750px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__library-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 750px;
+    display: flex !important;
+    justify-content: center !important;
+    z-index: 2;
+  }
+
+  &__illustration {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto !important;
+  }
+
+  &__shelf {
+    width: 100%;
+    max-width: 850px;
+    height: 2.5rem;
+    background-color: #B08968;
+    border-radius: 4px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+    margin-top: -11.3rem;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 4rem;
+  }
+
+  &__labels {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 750px;
+    height: 100%;
+  }
+
+  &__book-text {
+    position: absolute;
+    z-index: 3;
+
+    writing-mode: vertical-rl;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: $color-text;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    bottom: 27%;
+
+    span {
+      display: block;
+      transform: rotate(180deg);
+    }
+
+    &--1 {
+      left: 33%;
+    }
+
+    &--2 {
+      left: 38%;
+    }
+
+    &--3 {
+      left: 43%;
+    }
+
+    &--4 {
+      left: 48%;
+    }
+
+    &--5 {
+      left: 51.5%;
+    }
+
+    &--6 {
+      left: 56%;
+    }
+
+    &--7 {
+      left: 62%;
+    }
+
+    &--8 {
+      left: 69%;
+    }
+
+    &--9 {
+      left: 75%;
+    }
+  }
+
+}
+
+/*
+PROJETS
+*/
+
+.projects {
+  position: relative;
+
+  padding: 8rem 4rem;
+
+  max-width: 1600px;
+  margin: 112px auto;
+
+  &__title {
+    font-family: $font-title;
+    font-size: $size-subtitle;
+    color: $color-subtitle;
+    margin-bottom: 2rem;
+  }
+
+  &__nav {
+    margin-bottom: 8rem;
+  }
+
+  &__filter-list {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__filter-link {
+    background: #efe4cc;
+
+    padding: 0.7rem 0.1rem;
+
+    border-radius: 12px;
+
+    text-decoration: none;
+    color: $color-text;
+    font-weight: 600;
+
+    min-width: 170px;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  &__category-visual {
+    position: absolute;
+
+    top: 2rem;
+    right: 4rem;
+  }
+
+  &__category-img {
+    width: 550px;
+    height: auto;
+    transform: scaleX(-1);
+
+  }
+
+  &__grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    justify-items: center;
+
+    gap: 8rem 6rem;
+  }
+}
+
+.project-card {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+  padding-bottom: 50px;
+
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    width: 100%;
+  }
+
+  &__media {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__book {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    flex-shrink: 0;
+    display: block;
+  }
+
+  &__thumbnail {
+    position: absolute;
+    width: 46%;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  &__title {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 340px;
+    margin-top: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    text-align: center;
+    color: $color-text;
+    font-size: 2.2rem;
+  }
+}
+
+/*
+PARCOURS
+*/
+
+.course {
+  position: relative;
+  padding: 80px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 112px;
+
+  &__title {
+    font-size: $size-subtitle;
+    color: $color-subtitle;
+    font-family: $font-title;
+    text-align: center;
+    margin-bottom: 6rem;
+  }
+
+  &__container {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  &__avatar-container {
+    position: absolute;
+    top: 6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 100%;
+    pointer-events: none;
+    z-index: 40;
+  }
+
+  &__main-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: auto;
+    margin-left: -160px;
+    margin-top: -160px;
+    will-change: transform;
+
+  }
+
+  &__steps {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 140px;
+    position: relative;
+  }
+
+  &__step {
+    position: relative;
+    width: 500px;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:nth-child(odd) {
+      margin-right: auto;
+    }
+
+    &:nth-child(even) {
+      margin-left: auto;
+    }
+
+  }
+
+}
+
+.step {
+  &__content {
+    position: relative;
+    z-index: 20;
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  &__illustration {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 10;
+  }
+
+  &__title {
+    font-size: 2.4rem;
+    font-family: $font-title;
+    color: $color-text;
+
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  &__description {
+    font-size: 1.4rem;
+    color: $color-text;
+    line-height: 1.3;
+  }
+
+}
+
+.contact{
+  margin-top: 250px;
+  padding: 60px;
+  font-family: $font-body;
+  color: $color-text;
+
+  &__title{
+    font-family: $font-title;
+    font-size: $size-subtitle;
+    color: $color-subtitle;
+    margin-bottom: 40px;
+  }
+
+  &__container{
+    display: flex;
+    gap: 10%;
+    align-items: flex-start;
+  }
+
+  .contact-form{
+    flex: 1;
+    max-width: 500px;
+
+    &__group{
+      margin-bottom: 20px;
+
+      label{
+        display: block;
+        margin-bottom: 8px;
+        color: $color-text;
+        font-weight: 500;
+      }
+
+      input, textarea{
+        width: 100%;
+        padding: 15px;
+        border: none;
+        background-color: #efe4cc;
+        border-radius: 10px;
+        box-sizing: border-box;
+        font-size: 1rem;
+        color: $color-text;
+      }
+
+      textarea{
+        height: 150px;
+        resize: vertical;
+      }
+    }
+
+    &__btn{
+      background-color: $color-text;
+      color: $main-bg;
+      border: none;
+      padding: 12px 35px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover{
+        background-color: #3f332d;
+      }
+    }
+  }
+
+  &__sidebar{
+    flex: 1;
+    max-width: 450px;
+    position: relative;
+    padding-bottom: 120px;
+
+  }
+
+  .coordonnee-section {
+    background-color: #efe4cc;
+    padding: 30px;
+    border-radius: 10px;
+
+    &__title {
+      font-family: $font-title;
+      font-size: 1.8rem;
+      color: $color-subtitle;
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
+
+    &__item {
+      margin-bottom: 18px;
+    }
+
+    &__label {
+      margin: 0 0 4px 0;
+      font-weight: bold;
+      color: $color-text;
+    }
+
+    &__value {
+      margin: 0;
+      color: $color-text;
+    }
+  }
+  &__image{
+    position: absolute;
+    bottom: -80px;
+    right: -50px;
+    width: 300px;
+    height: auto;
+    z-index: 2;
+  }
+}
+
+/* =============================================
+   BASE MOBILE-FIRST — overflow global
+   ============================================= */
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* =============================================
+   TABLETTE — max 1024px
+   ============================================= */
+
+@media (max-width: 1024px) {
+
+  .typemachine {
+    margin-top: 0;
+    &__text { font-size: 42px; }
+  }
+
+  .header {
+    &__title    { font-size: 5rem; }
+    &__subtitle { font-size: 2rem; }
+  }
+
+  .about-me {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    &__title    { font-size: 3rem; }
+    &__images   { min-height: 300px; }
+    &__image--sitting { width: 250px; }
+    &__image--cat     { width: 140px; left: 2rem; bottom: 5rem; }
+    &__bench          { bottom: 8rem; }
+  }
+
+  .skills {
+    margin-top: 60px;
+    &__title { font-size: 3rem; }
+  }
+
+  .projects {
+    padding: 4rem 2rem;
+    margin: 60px auto;
+    overflow: hidden;
+    &__title { font-size: 3rem; }
+    &__grid  { grid-template-columns: repeat(2, 1fr); gap: 5rem 3rem; }
+    &__category-visual { display: none; }
+    &__filter-list { flex-wrap: wrap; }
+  }
+
+  .course {
+    margin-top: 60px;
+    &__title { font-size: 3rem; }
+    &__avatar-container { display: none; }
+    &__step { width: 400px; }
+  }
+
+  .contact {
+    margin-top: 120px;
+    padding: 40px;
+    &__title { font-size: 3rem; }
+    &__container { gap: 5%; }
+  }
+}
+
+
+/* =============================================
+   MOBILE — max 768px
+   ============================================= */
+
+@media (max-width: 768px) {
+
+  /* ---- Typemachine ---- */
+  .typemachine {
+    height: 100svh;
+    margin-top: 0;
+    &__text {
+      font-size: 26px;
+      padding: 1rem;
+      white-space: normal;
+      word-break: break-word;
+    }
+  }
+
+  /* ---- Header titre ---- */
+  .header {
+    padding: 2rem 1.5rem;
+    &__title {
+      font-size: clamp(2.5rem, 10vw, 5rem); /* s'adapte à la largeur */
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    &__subtitle {
+      font-size: clamp(1.2rem, 4vw, 2rem);
+    }
+  }
+
+  /* ---- À propos ---- */
+  .about-me {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    gap: 2rem;
+
+    &__content {
+      max-width: 100%;
+      width: 100%;
+      line-height: 1.4;
+    }
+
+    &__title {
+      font-size: clamp(1.8rem, 7vw, 3rem);
+      word-break: break-word;
+    }
+
+    &__description {
+      font-size: 1.2rem;
+      width: 100%;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    &__images {
+      min-height: 280px;
+      width: 100%;
+    }
+
+    &__image--sitting{
+      width: 200px;
+      left: 3rem;
+      bottom: 1rem;
+    }
+    &__image--cat{
+      width: 110px;
+      left: 3rem;
+      bottom: 5.5rem;
+    }
+    &__bench{
+      bottom: 6.5rem;
+    }
+  }
+
+  /* ---- Compétences ---- */
+  .skills {
+    margin-top: 20px;
+    padding: 0 1rem;
+    overflow: hidden;
+    margin-bottom: 30px;
+
+    &__title {
+      font-size: clamp(1.8rem, 7vw, 3rem);
+      word-break: break-word;
+      overflow-wrap: break-word;
+      margin-bottom: 2rem;
+    }
+
+    &__container {
+      max-width: 100%;
+    }
+
+    &__library-wrapper {
+      max-width: 100%;
+    }
+
+    &__illustration {
+      max-width: 100%;
+      right: 2rem;
+    }
+
+    &__shelf {
+      max-width: 100%;
+      top: 5rem;
+    }
+
+    &__book-text {
+      font-size: 0.8rem;
+    }
+  }
+
+  /* ---- Projets ---- */
+  .projects {
+    padding: 2rem 1rem;
+    margin: 60px auto;
+    overflow: hidden;
+    position: relative;
+
+    &__title {
+      font-size: clamp(1.8rem, 7vw, 3rem);
+      word-break: break-word;
+    }
+
+    &__category-visual {
+      display: block;
+      text-align: center;
+      margin-bottom: 1.5rem;
+
+      img {
+        width: 200px;
+        transform: none;
+        margin-top: 6rem;
+        right: 5rem;
+      }
+    }
+
+    &__nav {
+      margin-bottom: 3rem;
+    }
+
+    &__filter-list {
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    &__filter-link {
+      min-width: 80px;
+      font-size: 0.9rem;
+      padding: 0.5rem 0.8rem;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem 1rem;
+    }
+  }
+
+  .project-card {
+    max-width: 100%;
+    width: 100%;
+    padding-bottom: 30px;
+    margin-top: 30px;
+
+    &__media {
+      max-width: 140px;
+      margin: 0 auto;
+    }
+
+    &__title {
+      font-size: 1.1rem;
+      position: relative;
+      bottom: 2rem;
+      left: 0rem;
+      transform: none;
+      margin-top: 0.5rem;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  /* ---- Parcours ---- */
+  .course {
+    margin-top: 40px;
+    padding: 40px 1rem;
+    overflow: hidden;
+
+    &__title {
+      font-size: clamp(1.8rem, 7vw, 3rem);
+      margin-bottom: 3rem;
+    }
+
+    /* Supprime l'avatar flottant qui se superpose */
+    &__avatar-container {
+      display: block; // réaffiche le container
+      position: relative; // sort du position absolute
+      top: auto;
+      left: auto;
+      transform: none;
+      width: 100%;
+      height: auto;
+      text-align: center;
+      margin-bottom: 2rem;
+      pointer-events: none;
+    }
+    &__main-image {
+      position: relative; // sort du position absolute
+      top: auto;
+      left: auto;
+      margin: 0 auto;
+      width: 200px;
+      display: block;
+    }
+
+    &__steps { gap: 60px; }
+
+    &__step {
+      width: 100%;
+      max-width: 340px;
+      min-height: 220px;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  }
+
+  .step {
+    &__content { padding: 2rem 3rem; }
+    &__title   { font-size: 1.8rem; }
+    &__description { font-size: 1.2rem; }
+  }
+
+  /* ---- Contact ---- */
+  .contact {
+    margin-top: 80px;
+    padding: 30px 1.5rem;
+
+    &__title {
+      font-size: clamp(1.8rem, 7vw, 3rem);
+    }
+
+    /* Passe en colonne : form puis coordonnées */
+    &__container {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .contact-form {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    /* Sidebar : reset position pour ne plus déborder */
+    &__sidebar {
+      max-width: 100%;
+      width: 100%;
+      position: relative;
+      padding-bottom: 0; /* on gère l'image séparément */
+    }
+
+    /* Image cartoon : sous les coordonnées, centrée */
+    &__image {
+      position: relative;
+      display: block;
+      margin: 1.5rem auto 0;
+      bottom: auto;
+      right: auto;
+      width: 180px;
+    }
+  }
+
+  .coordonnee-section {
+    &__title { font-size: 1.5rem; }
+  }
+}
+
+
+/* =============================================
+   PETIT MOBILE — max 480px
+   ============================================= */
+
+@media (max-width: 480px) {
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .typemachine__text {
+    font-size: 20px;
+    margin-top: -50px;
+  }
+
+  .header {
+    &__title    { font-size: clamp(2rem, 9vw, 3rem); }
+    &__subtitle { font-size: clamp(1rem, 4vw, 1.6rem); }
+  }
+
+  .about-me__title  { font-size: 2rem; }
+
+  .skills__title,
+  .projects__title,
+  .course__title,
+  .contact__title   { font-size: 2rem; }
+
+  .project-card { max-width: 260px; }
+
+  .contact {
+    padding: 20px 1rem;
+    &__image { width: 150px; }
+  }
+}

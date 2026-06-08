@@ -1,0 +1,62 @@
+$footer_bg: #594336;
+$text_color: #F5F1EA;
+$title_font: 'Lora', 'Georgia', 'Times New Roman', Times, serif;
+$text_font: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
+$text_size: 1rem;
+
+.footer {
+  background-color: $footer_bg;
+  color: $text_color;
+  padding: 60px 0;
+  font-family: $text_font;
+  font-size: $text_size;
+  width: 100%;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 150px;
+  }
+
+  &__navigation,
+  &__socials{
+    text-align: left;
+
+    &__title{
+      color: $text_color;
+      font-family: $title_font;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    &__list{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    &__list-item{
+      margin-bottom: 12px;
+    }
+
+    &__link{
+      color: $text_color;
+      text-decoration: none;
+      opacity: 0.85;
+      font-size: $text_size;
+      transition: opacity 0.2s ease;
+
+      &:hover{
+        opacity: 1;
+      }
+    }
+  }
+
+}

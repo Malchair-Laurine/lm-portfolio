@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "watch": "chokidar './wp-content/themes/portfolio/assets/js/app/**/*.js' './wp-content/themes/portfolio/assets/css/**/*' -c 'vite build'",
+    "watch": "chokidar 'wp-content/themes/portfolio/assets/js/app/**/*.js' './wp-content/themes/portfolio/assets/css/**/*' -c 'vite build'",
     "serve": "browser-sync start --proxy 'http://lm-portfolio.test/' --files 'wp-content/themes/portfolio/public/**/*' --no-https --port 8000"
   },
   "keywords": [],
