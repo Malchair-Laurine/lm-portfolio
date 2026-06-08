@@ -1,40 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // On cible le conteneur des NUAGES uniquement, pour éviter le titre
-    const stepsContainer = document.querySelector('.course__steps');
-    const avatar = document.querySelector('.course__main-image');
 
-    if (!stepsContainer || !avatar) return;
 
-    function updateAvatarPosition() {
-        const rect = stepsContainer.getBoundingClientRect();
+    // AVATAR PARCOURS — désactivé sur mobile
 
-        const totalHeight = rect.height;
+    if (window.innerWidth > 768) {
+        const stepsContainer = document.querySelector('.course__steps');
+        const avatar = document.querySelector('.course__main-image');
 
-        const triggerZone = window.innerHeight * 0.35;
+        if (stepsContainer && avatar) {
+            function updateAvatarPosition() {
+                const rect = stepsContainer.getBoundingClientRect();
+                const totalHeight = rect.height;
+                const triggerZone = window.innerHeight * 0.35;
+                const currentScroll = triggerZone - rect.top;
 
-        const currentScroll = triggerZone - rect.top;
+                let progress = currentScroll / totalHeight;
+                progress = Math.max(0, Math.min(1, progress));
 
-        let progress = currentScroll / totalHeight;
-        progress = Math.max(0, Math.min(1, progress));
+                const targetY = progress * totalHeight;
+                const nombreDeVagues = 4;
+                const amplitudePixels = 300;
+                const angle = progress * Math.PI * 2 * nombreDeVagues;
+                const targetX = Math.sin(angle) * amplitudePixels;
 
-        const targetY = progress * totalHeight;
+                avatar.style.transform = `translate(${targetX}px, ${targetY}px)`;
+            }
 
-        const nombreDeVagues = 4;
-        const amplitudePixels = 300;
-
-        const angle = progress * Math.PI * 2 * nombreDeVagues;
-        const targetX = Math.sin(angle) * amplitudePixels;
-
-        avatar.style.transform = `translate(${targetX}px, ${targetY}px)`;
+            window.addEventListener('scroll', updateAvatarPosition);
+            window.addEventListener('resize', updateAvatarPosition);
+            updateAvatarPosition();
+        }
     }
 
-    window.addEventListener('scroll', updateAvatarPosition);
-    window.addEventListener('resize', updateAvatarPosition);
 
-    updateAvatarPosition();
-});
+    // TYPEMACHINE
 
-document.addEventListener("DOMContentLoaded", () => {
     const typemachineBlock = document.querySelector(".typemachine");
     const textElement = document.querySelector(".typemachine__text");
 
@@ -51,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 index++;
                 setTimeout(type, speed);
             } else {
-
                 textElement.style.borderRight = "none";
 
                 setTimeout(() => {
@@ -62,7 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     setTimeout(() => {
                         typemachineBlock.style.display = "none";
                     }, 500);
-
                 }, 2000);
             }
         }
@@ -70,6 +68,9 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(type, 200);
     }
 });
+
+
+// NAVIGATION — apparition après typemachine
 
 const nav = document.querySelector('.main-header');
 const typemachine = document.querySelector('.typemachine');
@@ -81,7 +82,6 @@ if (typemachine) {
 
     observer.observe(typemachine);
 
-    // Sur mobile : affiche la nav immédiatement sans attendre le scroll
     if (window.innerWidth <= 768) {
         nav.classList.add('main-header--visible');
     }

@@ -16,12 +16,6 @@
     <nav class="navigation">
         <h2 class="navigation__title sro">Menu de navigation custom</h2>
 
-        <button class="navigation__burger" aria-label="Ouvrir le menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
         <ul class="navigation__list">
             <?php foreach (dw_get_navigation_links('header') as $link) : ?>
                 <li class="navigation__list-item">
@@ -38,5 +32,4 @@
         </ul>
     </nav>
 </header>
-<h1 class="sro"><?= get_the_title() ?></h1>
 
