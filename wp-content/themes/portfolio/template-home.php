@@ -310,131 +310,53 @@ $my_country = get_field('my_country');
 
 <div class="contact" id="contact">
 
-    <?php if ($contact_title !== ""): ?>
-        <h2 class="contact__title"><?= $contact_title ?></h2>
+    <?php if (!empty($contact_title)): ?>
+        <h2 class="contact__title"><?= esc_html($contact_title) ?></h2>
     <?php endif; ?>
-
-
-    <?php if (isset($success)) : ?>
-        <p class="contact-form__success"><?= $success ?></p>
-    <?php endif; ?>
-
-    <?php if (isset($error)) : ?>
-        <p class="contact-form__error"><?= $error ?></p>
-    <?php endif; ?>
-
-    <?php
-    if (isset($_POST['contact_submit'])) {
-
-        // Vérification du nonce (sécurité)
-        if (!wp_verify_nonce($_POST['contact_nonce'], 'contact_form')) {
-            die('Erreur de sécurité');
-        }
-
-        // Récupération et nettoyage des données
-        $name = sanitize_text_field($_POST['name']);
-        $email = sanitize_email($_POST['email']);
-        $message = sanitize_textarea_field($_POST['message']);
-
-        // Validation
-        if (empty($name) || empty($email) || empty($message)) {
-            $error = "Tous les champs sont obligatoires.";
-        } elseif (!is_email($email)) {
-            $error = "L'adresse email n'est pas valide.";
-        } else {
-            // Envoi de l'email
-            $to = get_option('admin_email'); // ou ton email fixe
-            $subject = "Nouveau message de contact - $name";
-            $body = "Nom : $name\nEmail : $email\n\nMessage :\n$message";
-            $headers = [
-                    'Content-Type: text/plain; charset=UTF-8',
-                    "Reply-To: $email"
-            ];
-
-            $sent = wp_mail($to, $subject, $body, $headers);
-
-            if ($sent) {
-                $success = "Votre message a bien été envoyé !";
-            } else {
-                $error = "Une erreur est survenue, veuillez réessayer.";
-            }
-        }
-    }
-    ?>
 
     <div class="contact__container">
 
-        <form class="contact-form" method="POST" action="">
-            <?php wp_nonce_field('contact_form', 'contact_nonce'); ?>
-
-            <div class="contact-form__group">
-                <label for="name"><?= $name ?></label>
-                <input type="text" id="name" name="name" required
-                       value="<?= isset($_POST['name']) ? esc_attr($_POST['name']) : '' ?>">
-            </div>
-
-            <div class="contact-form__group">
-                <label for="email"><?= $email ?></label>
-                <input type="email" id="email" name="email" required
-                       value="<?= isset($_POST['email']) ? esc_attr($_POST['email']) : '' ?>">
-            </div>
-
-            <div class="contact-form__group">
-                <label for="phone"><?= $phone_number ?></label>
-                <input type="text" id="phone" name="phone" required
-                       value="<?= isset($_POST['phone']) ? esc_attr($_POST['phone']) : '' ?>">
-            </div>
-
-
-            <div class="contact-form__group">
-                <label for="message"><?= $message ?></label>
-                <textarea id="message" name="message"
-                          required><?= isset($_POST['message']) ? esc_textarea($_POST['message']) : '' ?></textarea>
-            </div>
-
-            <button type="submit" name="contact_submit" class="contact-form__btn">Envoyer</button>
-        </form>
+        <div class="contact" id="contact">
+            <?php echo do_shortcode('[contact-form-7 id="b3a27e8" title="Formulaire de contact portfolio"]')  ?>
+        </div>
 
         <div class="contact__sidebar">
-
-
             <section class="coordonnee-section">
 
-
-                <?php if ($my_coordonee_title !== ""): ?>
-                    <h3 class="coordonnee-section__title"><?= $my_coordonee_title ?></h3>
+                <?php if (!empty($my_coordonee_title)): ?>
+                    <h3 class="coordonnee-section__title"><?= esc_html($my_coordonee_title) ?></h3>
                 <?php endif; ?>
 
-                <div class="coordonnee-section__item">
-                <?php if ($my_phone_number_label !== ""): ?>
-                    <p class="coordonnee-section__label"><?= $my_phone_number_label ?></p>
+                <?php if (!empty($my_phone_number)): ?>
+                    <div class="coordonnee-section__item">
+                        <?php if (!empty($my_phone_number_label)): ?>
+                            <p class="coordonnee-section__label"><?= esc_html($my_phone_number_label) ?></p>
+                        <?php endif; ?>
+                        <p class="coordonnee-section__value"><?= esc_html($my_phone_number) ?></p>
+                    </div>
                 <?php endif; ?>
-                <?php if ($my_phone_number !== ""): ?>
-                    <p class="coordonnee-section__value"><?= $my_phone_number ?></p>
-                <?php endif; ?>
-                </div>
 
-                <div class="coordonnee-section__item">
-                <?php if ($my_mail_label !== ""): ?>
-                    <p class="coordonnee-section__label"><?= $my_mail_label ?></p>
+                <?php if (!empty($my_mail)): ?>
+                    <div class="coordonnee-section__item">
+                        <?php if (!empty($my_mail_label)): ?>
+                            <p class="coordonnee-section__label"><?= esc_html($my_mail_label) ?></p>
+                        <?php endif; ?>
+                        <p class="coordonnee-section__value"><?= esc_html($my_mail) ?></p>
+                    </div>
                 <?php endif; ?>
-                <?php if ($my_mail !== ""): ?>
-                    <p class="coordonnee-section__value"><?= $my_mail ?></p>
-                <?php endif; ?>
-                </div>
 
-                <div class="coordonnee-section__item">
-                <?php if ($my_country_label !== ""): ?>
-                    <p class="coordonnee-section__label"><?= $my_country_label ?></p>
+                <?php if (!empty($my_country)): ?>
+                    <div class="coordonnee-section__item">
+                        <?php if (!empty($my_country_label)): ?>
+                            <p class="coordonnee-section__label"><?= esc_html($my_country_label) ?></p>
+                        <?php endif; ?>
+                        <p class="coordonnee-section__value"><?= esc_html($my_country) ?></p>
+                    </div>
                 <?php endif; ?>
-                <?php if ($my_country !== ""): ?>
-                    <p class="coordonnee-section__value"><?= $my_country ?></p>
-                <?php endif; ?>
-                </div>
 
-                <?php if ($contact_image !== ""): ?>
-                    <img src="<?= $contact_image ['url'] ?>"
-                         alt="<?= $contact_image ['alt'] ?>"
+                <?php if (!empty($contact_image)): ?>
+                    <img src="<?= esc_url($contact_image['url']) ?>"
+                         alt="<?= esc_attr($contact_image['alt']) ?>"
                          width="400"
                          height="400"
                          class="contact__image"
@@ -442,7 +364,6 @@ $my_country = get_field('my_country');
                 <?php endif; ?>
 
             </section>
-
         </div>
     </div>
 </div>

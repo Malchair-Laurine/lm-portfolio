@@ -509,7 +509,7 @@ CONTACT
 */
 
 .contact {
-  margin-top: 250px;
+  margin-top: 80px;
   padding: 60px;
   font-family: $font-body;
   color: $color-text;
@@ -519,6 +519,7 @@ CONTACT
     font-size: $size-subtitle;
     color: $color-subtitle;
     margin-bottom: 40px;
+    margin-top: 50px;
   }
 
   &__container {
@@ -527,12 +528,22 @@ CONTACT
     align-items: flex-start;
   }
 
-  .contact-form {
+  .contact-form-wp {
     flex: 1;
     max-width: 500px;
+    width: 100%;
+  }
+
+  .contact-form {
+    width: 100%;
+
+    p {
+      margin: 0;
+    }
 
     &__group {
       margin-bottom: 20px;
+      width: 100%;
 
       label {
         display: block;
@@ -541,7 +552,16 @@ CONTACT
         font-weight: 500;
       }
 
-      input, textarea {
+      .wpcf7-form-control-wrap {
+        display: block;
+        width: 100%;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      textarea,
+      .wpcf7-text,
+      .wpcf7-textarea {
         width: 100%;
         padding: 15px;
         border: none;
@@ -550,15 +570,23 @@ CONTACT
         box-sizing: border-box;
         font-size: 1rem;
         color: $color-text;
+        font-family: $font-body;
+
+        &:focus {
+          outline: 2px solid $color-subtitle;
+        }
       }
 
-      textarea {
+      textarea,
+      .wpcf7-textarea {
         height: 150px;
         resize: vertical;
       }
     }
 
-    &__btn {
+    &__btn,
+    .wpcf7-submit {
+      display: inline-block;
       background-color: $color-text;
       color: $main-bg;
       border: none;
@@ -567,8 +595,19 @@ CONTACT
       border-radius: 10px;
       cursor: pointer;
       transition: background 0.3s ease;
+      -webkit-appearance: none;
 
-      &:hover { background-color: #3f332d; }
+      &:hover {
+        background-color: #3f332d;
+      }
+    }
+
+    .wpcf7-response-output {
+      margin: 20px 0 0 0;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 1rem;
+      border: 2px solid transparent;
     }
   }
 

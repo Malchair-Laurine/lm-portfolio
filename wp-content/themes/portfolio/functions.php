@@ -1,4 +1,12 @@
 <?php
+// SÉCURITÉ : Empêche le site de crasher si Secure Custom Fields / ACF est désactivé
+if ( ! function_exists( 'acf_add_options_page' ) ) {
+    function acf_add_options_page() { return; }
+    function get_field( $selector, $post_id = false, $format_value = true ) { return false; }
+    function the_field( $selector, $post_id = false, $format_value = true ) { return; }
+    function have_rows( $selector, $post_id = false ) { return false; }
+}
+
 include('core/theme/configuration.php');
 
 // Déclaration des menus dans wordpress
@@ -71,13 +79,16 @@ function dw_asset(string $file): string
 }
 
 // Ajouts d'une page d'option (exemple de la documentation)
-acf_add_options_page(array(
-    'page_title' => 'Theme General Settings',
-    'menu_title' => 'Theme Settings',
-    'menu_slug' => 'theme-general-settings',
-    'capability' => 'edit_posts',
-    'redirect' => false
-));
+if ( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+        'page_title' => 'Theme General Settings',
+        'menu_title' => 'Theme Settings',
+        'menu_slug' => 'theme-general-settings',
+        'capability' => 'edit_posts',
+        'redirect' => false
+    ));
+}
+
 
 //charger les traductions existantes
 load_theme_textdomain('hepl-trad', get_template_directory() . '/locales');
@@ -92,7 +103,7 @@ register_post_type('project',[
 ]);
 
 register_taxonomy('project-type', ['project'], [
-   'label' => 'Le type de projet',
+    'label' => 'Le type de projet',
     'public' => true,
     'hierarchical' => true,
 ]);
@@ -101,4 +112,3 @@ function __hepl($translation): ?string
 {
     return __($translation, 'hepl-trad');
 }
-
