@@ -31,10 +31,10 @@ $query = new WP_Query($args);
                 <?= $term->name; ?>
             </a>
             <?php endforeach; ?>
-            <a href="/projets?filter=web">
+            <a href="/projets?filter=">
                 <?= $term->name; ?>
             </a>
-            <a href="/projets?filter=mobile">
+            <a href="/projets?filter=">
                 <?= $term->name; ?>
             </a>
         </li>

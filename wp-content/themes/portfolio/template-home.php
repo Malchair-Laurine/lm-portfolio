@@ -120,7 +120,7 @@ $my_country = get_field('my_country');
 <!--Mes compétences-->
 <!---->
 
-<section class="skills" id="mes-compétences">
+<section class="skills" id="mes-competences">
     <?php if ($skills_title !== ""): ?>
         <p class="skills__title"><?= $skills_title ?></p>
     <?php endif; ?>
@@ -317,7 +317,10 @@ $my_country = get_field('my_country');
     <div class="contact__container">
 
         <div class="contact" id="contact">
-            <?php echo do_shortcode('[contact-form-7 id="b3a27e8" title="Formulaire de contact portfolio"]')  ?>
+            <?php
+            $form_id = (pll_current_language() === 'fr') ? 'b3a27e8' : '64af3ae';
+            echo do_shortcode('[contact-form-7 id="' . $form_id . '"]');
+            ?>
         </div>
 
         <div class="contact__sidebar">
