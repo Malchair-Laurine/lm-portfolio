@@ -52,7 +52,7 @@ body {
   align-items: center;
   background-color: $typemachine-bg;
   min-height: 200px;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   padding: 0;
   text-align: center;
@@ -222,7 +222,7 @@ COMPETENCES
 
   &__shelf {
     width: 100%;
-    max-width: 850px;
+    max-width: 750px;
     height: 2.5rem;
     background-color: #B08968;
     border-radius: 4px;
@@ -762,8 +762,8 @@ MOBILE
   }
 
   .typemachine {
-    margin-top: 0;
-    height: calc(100svh - 70px);
+    margin-top: 0 !important;
+    height: 100svh;
 
     &__text {
       font-size: 26px;

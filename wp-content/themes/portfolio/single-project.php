@@ -17,7 +17,8 @@
     $conclusion = get_field('conclusion');
     $project_gallery = get_field('project_gallery');
     $project_gallery_images = get_field('project_gallery_images');
-    $figma_link = get_field('figma_link');
+    $project_links = get_field('project_links');
+    $project_links_title = get_field('project_links_title');
     ?>
 
     <main class="project-container">
@@ -61,9 +62,10 @@
                 <?php endif; ?>
 
                 <?php if ($figma_link) : ?>
-                <a href="<?= esc_url($figma_link) ?>" class="design-section__link" target="_blank" rel="noopener noreferrer">
-                    Voir le projet sur Figma
-                </a>
+                    <a href="<?= esc_url($figma_link) ?>" class="design-section__link" target="_blank"
+                       rel="noopener noreferrer">
+                        Voir le projet sur Figma
+                    </a>
                 <?php endif; ?>
             </div>
 
@@ -96,6 +98,14 @@
             </section>
         <?php endif; ?>
 
+        <section class="link-section">
+            <?php foreach ($project_links as $key => $project_link): ?>
+                <a href="<?= htmlspecialchars($project_link['one_link']) ?>">
+                    <?= htmlspecialchars($project_links_title[$key]['one_link_title']) ?>
+                </a>
+            <?php endforeach; ?>
+        </section>
+
         <section class="gallery-section">
             <?php if ($project_gallery) : ?>
                 <h2 class="gallery-section__title"><?= $project_gallery ?></h2>
@@ -117,9 +127,12 @@
             <?php endif; ?>
         </section>
 
+
+
     </main>
 
-<?php endwhile; else: ?>
+<?php endwhile;
+else: ?>
     <p><?php _e('Sorry, no posts matched your criteria'); ?></p>
 <?php endif; ?>
 

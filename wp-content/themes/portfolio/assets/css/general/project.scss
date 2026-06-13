@@ -152,6 +152,48 @@ flex: 0 0 calc((100% - 50px) / 3);
   border-radius: 8px;
 }
 
+.link-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 100%;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    font-family: $font-title;
+    font-size: $size-text;
+    font-weight: 500;
+    color: $main-bg;
+    text-decoration: none;
+    background-color: $color-text;
+    border: 2px solid $color-text;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      color: $color-text;
+      background-color: $main-bg;
+      border-color: $color-text;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($color-text, 0.1);
+      outline: none;
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 6px rgba($color-text, 0.1);
+    }
+  }
+}
+
 /*
 RESPONSIVE
 */
@@ -236,6 +278,18 @@ RESPONSIVE
 
   .gallery-item img {
     max-height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .link-section {
+    justify-content: center;
+
+    a {
+      width: 100%;
+      max-width: 300px;
+      padding: 10px 20px;
+    }
   }
 }
 
