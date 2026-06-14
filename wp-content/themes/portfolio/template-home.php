@@ -55,25 +55,25 @@ $my_country = get_field('my_country');
 <!---->
 <!--Type machine-->
 <!---->
-
-<div class="typemachine">
-    <?php if ($typemachine_text !== ""): ?>
-        <p class="typemachine__text"><?= $typemachine_text ?></p>
-    <?php endif; ?>
+<div itemscope itemtype="https://schema.org/ProfilePage">
+    <div class="typemachine">
+        <?php if ($typemachine_text !== ""): ?>
+            <p class="typemachine__text"><?= $typemachine_text ?></p>
+        <?php endif; ?>
+    </div>
 </div>
-
 
 <!---->
 <!--header-->
 <!---->
 
-<div class="header" id="accueil">
+<div class="header" id="accueil" itemprop="mainEntity" itemscope itemtype="https://schema.org/Person">
     <?php if ($main_title !== ""): ?>
-        <h1 class="header__title"><?= $main_title ?></h1>
+        <h1 class="header__title" itemprop="name"><?= $main_title ?></h1>
     <?php endif; ?>
 
     <?php if ($subtitle !== ""): ?>
-        <h2 class="header__subtitle"><?= $subtitle ?></h2>
+        <h2 class="header__subtitle" itemprop="jobTitle"><?= $subtitle ?></h2>
     <?php endif; ?>
 </div>
 
@@ -81,14 +81,14 @@ $my_country = get_field('my_country');
 <!--A propose de moi-->
 <!---->
 
-<section class="about-me" id="a-propos-de-moi">
+<section class="about-me" id="a-propos-de-moi" itemprop="mainEntity" itemscope itemtype="https://schema.org/Person">
     <div class="about-me__content">
         <?php if ($description_title !== ""): ?>
             <h2 class="about-me__title"><?= $description_title ?></h2>
         <?php endif; ?>
 
         <?php if ($description_text !== ""): ?>
-            <p class="about-me__description"><?= $description_text ?></p>
+            <p class="about-me__description" itemprop="description"><?= $description_text ?></p>
         <?php endif; ?>
     </div>
 
@@ -122,7 +122,7 @@ $my_country = get_field('my_country');
 
 <section class="skills" id="mes-competences">
     <?php if ($skills_title !== ""): ?>
-        <p class="skills__title"><?= $skills_title ?></p>
+        <h2 class="skills__title"><?= $skills_title ?></h2>
     <?php endif; ?>
 
     <?php if ($skills_library): ?>
@@ -207,7 +207,7 @@ $my_country = get_field('my_country');
         <?php endif; ?>
     <?php endforeach; ?>
 
-    <div class="projects__grid">
+    <div class="projects__grid" itemscope itemtype="https://schema.org/ItemList">
         <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
             <?php
             $project_title = get_field('project_title');
@@ -215,7 +215,7 @@ $my_country = get_field('my_country');
             $project_image = get_field('project_image');
             ?>
             <?php if ($project_title !== "" && $project_image !== "" && $project_book !== ""): ?>
-                <article class="projects__item project-card">
+                <article class="projects__item project-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/CreativeWork">
 
                     <a
                             class="project-card__link"
@@ -283,9 +283,10 @@ $my_country = get_field('my_country');
         </div>
 
 
-        <div class="course__steps">
+        <div class="course__steps" itemscope itemtype="https://schema.org/ItemList">
             <?php foreach ($steps as $step_item): ?>
-                <div class="course__step step">
+                <div class="course__step step" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <meta itemprop="position" content="<?= $index + 1 ?>">
                     <img src="<?= $step_item['step_image']['url'] ?>"
                          alt="<?= $step_item['step_image']['alt'] ?>"
                          width="400"
@@ -293,8 +294,8 @@ $my_country = get_field('my_country');
                          class="step__illustration"
                     >
                     <div class="step__content">
-                        <h3 class="step__title"><?= $step_item['step_title'] ?></h3>
-                        <p class="step__description"><?= $step_item['step_text'] ?></p>
+                        <h3 class="step__title" itemprop="name"><?= $step_item['step_title'] ?></h3>
+                        <p class="step__description" itemprop="description"><?= $step_item['step_text'] ?></p>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -308,7 +309,7 @@ $my_country = get_field('my_country');
 <!--Contact-->
 <!---->
 
-<div class="contact" id="contact">
+<div class="contact" id="contact" itemprop="mainEntity" itemscope itemtype="https://schema.org/Person">
 
     <?php if (!empty($contact_title)): ?>
         <h2 class="contact__title"><?= esc_html($contact_title) ?></h2>
@@ -316,7 +317,7 @@ $my_country = get_field('my_country');
 
     <div class="contact__container">
 
-        <div class="contact" id="contact">
+        <div class="contact" id="contact-section">
             <?php
             $form_id = (pll_current_language() === 'fr') ? 'b3a27e8' : '64af3ae';
             echo do_shortcode('[contact-form-7 id="' . $form_id . '"]');
@@ -335,7 +336,7 @@ $my_country = get_field('my_country');
                         <?php if (!empty($my_phone_number_label)): ?>
                             <p class="coordonnee-section__label"><?= esc_html($my_phone_number_label) ?></p>
                         <?php endif; ?>
-                        <p class="coordonnee-section__value"><?= esc_html($my_phone_number) ?></p>
+                        <p class="coordonnee-section__value" itemprop="telephone"><?= esc_html($my_phone_number) ?></p>
                     </div>
                 <?php endif; ?>
 
@@ -344,16 +345,16 @@ $my_country = get_field('my_country');
                         <?php if (!empty($my_mail_label)): ?>
                             <p class="coordonnee-section__label"><?= esc_html($my_mail_label) ?></p>
                         <?php endif; ?>
-                        <p class="coordonnee-section__value"><?= esc_html($my_mail) ?></p>
+                        <p class="coordonnee-section__value" itemprop="email"><?= esc_html($my_mail) ?></p>
                     </div>
                 <?php endif; ?>
 
                 <?php if (!empty($my_country)): ?>
-                    <div class="coordonnee-section__item">
+                    <div class="coordonnee-section__item" itemscope itemtype="https://schema.org/PostalAddress">
                         <?php if (!empty($my_country_label)): ?>
                             <p class="coordonnee-section__label"><?= esc_html($my_country_label) ?></p>
                         <?php endif; ?>
-                        <p class="coordonnee-section__value"><?= esc_html($my_country) ?></p>
+                        <p class="coordonnee-section__value" itemprop="addressCountry"><?= esc_html($my_country) ?></p>
                     </div>
                 <?php endif; ?>
 
