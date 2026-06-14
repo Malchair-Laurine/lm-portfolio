@@ -60,13 +60,6 @@
                 <?php if ($project_design_desc) : ?>
                     <div class="design-section__description dynamic-content" itemprop="description"><?= $project_design_desc ?></div>
                 <?php endif; ?>
-
-                <?php if ($figma_link) : ?>
-                    <a href="<?= esc_url($figma_link) ?>" class="design-section__link" target="_blank"
-                       rel="noopener noreferrer" itemprop="url">
-                        Voir le projet sur Figma
-                    </a>
-                <?php endif; ?>
             </div>
 
             <?php if ($project_design_image) : ?>
